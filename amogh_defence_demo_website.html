@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amogh Defence Systems</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0b1d2a;
+      --accent: #00e5ff;
+      --accent-soft: rgba(0, 229, 255, 0.15);
+      --text: #e6f1f7;
+      --muted: #9fb3c8;
+      --card-bg: rgba(255, 255, 255, 0.04);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #102a3d, #050b10 70%);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 60px;
+      backdrop-filter: blur(10px);
+      background: rgba(5, 11, 16, 0.6);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--accent);
+    }
+
+    nav a {
+      margin-left: 28px;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 80px;
+      background: linear-gradient(120deg, rgba(0,229,255,0.08), transparent 40%), url('https://images.unsplash.com/photo-1600878459138-e1123f0b84b6?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(5,11,16,0.85), rgba(5,11,16,0.4));
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 720px;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 64px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+
+    .hero button {
+      padding: 14px 36px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--accent), #4df4ff);
+      color: #00222a;
+      box-shadow: 0 0 30px var(--accent-soft);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 45px var(--accent-soft);
+    }
+
+    section {
+      padding: 120px 80px;
+    }
+
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 36px;
+      margin-bottom: 18px;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 60px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 32px;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0, 229, 255, 0.15);
+    }
+
+    .card h3 {
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-top: 80px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 48px;
+      color: var(--accent);
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 60px 80px;
+      background: rgba(5,11,16,0.9);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 16px 24px;
+      }
+      .hero {
+        padding: 0 24px;
+      }
+      section {
+        padding: 100px 24px;
+      }
+      .hero h1 {
+        font-size: 44px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">AMOGH</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Capabilities</a>
+      <a href="#">Technology</a>
+      <a href="#">Careers</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Precision. Power.<br /><span>Amogh Defence</span></h1>
+      <p>
+        Building next-generation defence systems with cutting-edge technology,
+        uncompromising reliability, and mission-first design.
+      </p>
+      <button onclick="launchMission()">Explore Capabilities</button>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Core Capabilities</h2>
+    <p class="section-sub">
+      Amogh delivers advanced defence solutions engineered for modern
+      battlefields across land, air, sea, and cyber domains.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Autonomous Systems</h3>
+        <p>
+          AI-powered unmanned platforms designed for surveillance, reconnaissance,
+          and precision strike missions.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Advanced Weaponry</h3>
+        <p>
+          High-accuracy, next-gen weapon systems built with modular and scalable
+          architectures.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Cyber Defence</h3>
+        <p>
+          Military-grade cyber solutions protecting critical infrastructure and
+          command networks.
+        </p>
+      </div>
+      <div class="card">
+        <h3>ISR Solutions</h3>
+        <p>
+          Integrated intelligence, surveillance, and reconnaissance platforms for
+          real-time battlefield awareness.
+        </p>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <h2 id="stat1">0</h2>
+        <span>Years of Innovation</span>
+      </div>
+      <div class="stat">
+        <h2 id="stat2">0</h2>
+        <span>Strategic Projects</span>
+      </div>
+      <div class="stat">
+        <h2 id="stat3">0</h2>
+        <span>Global Partners</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Amogh Defence Systems. All Rights Reserved.</p>
+    <p>Securing Tomorrow. Today.</p>
+  </footer>
+
+  <script>
+    function launchMission() {
+      alert('Mission Briefing: Classified. Redirecting to capabilities module...');
+    }
+
+    const counters = [
+      { id: 'stat1', value: 25 },
+      { id: 'stat2', value: 140 },
+      { id: 'stat3', value: 18 }
+    ];
+
+    counters.forEach(counter => {
+      const el = document.getElementById(counter.id);
+      let current = 0;
+      const step = Math.ceil(counter.value / 60);
+
+      const interval = setInterval(() => {
+        current += step;
+        if (current >= counter.value) {
+          current = counter.value;
+          clearInterval(interval);
+        }
+        el.textContent = current;
+      }, 30);
+    });
+  </script>
+</body>
+</html>
